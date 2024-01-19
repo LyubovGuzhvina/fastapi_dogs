@@ -85,6 +85,6 @@ def update_dog(pk: int, dog:Dog) -> Dog:
         raise HTTPException(status_code=404, detail='Pk does not match')
     dogs_db[pk] = dog
     return dog
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+#
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
