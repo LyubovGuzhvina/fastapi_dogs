@@ -3,6 +3,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from datetime import datetime
 from typing import List
+import uvicorn
+
+
 
 app = FastAPI()
 
