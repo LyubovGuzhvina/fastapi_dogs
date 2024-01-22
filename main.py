@@ -1,14 +1,11 @@
+from datetime import datetime
 from enum import Enum
+from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from datetime import datetime
-from typing import List
-import uvicorn
-
 
 
 app = FastAPI()
-
 
 class DogType(str, Enum):
     terrier = "terrier"
@@ -77,6 +74,7 @@ def get_dog_by_pk(pk: int) -> Dog:
         raise HTTPException (status_code=404, detail= 'No such pk in dog database')
     return dogs_db[pk]
 
+
 @app.patch('/dog/{pk}')
 def update_dog(pk: int, dog:Dog) -> Dog:
     if pk not in dogs_db:
@@ -86,5 +84,6 @@ def update_dog(pk: int, dog:Dog) -> Dog:
     dogs_db[pk] = dog
     return dog
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=5555)
+
+
+
